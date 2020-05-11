@@ -9,6 +9,7 @@ import Results from './Results';
 import NewQuestion from './NewQuestion';
 import SignIn from './SignIn';
 import { handleInitialData } from '../actions/shared';
+import { setAuthedUser } from '../actions/authedUser'
 import Nav from './Nav';
 
 
@@ -16,6 +17,11 @@ class App extends Component {
 
   componentDidMount() {
     this.props.dispatch(handleInitialData())
+  }
+
+  handleLogOut = (e) => {
+    e.preventDefault();
+    this.props.dispatch(setAuthedUser(null));
   }
 
   render() {
@@ -27,7 +33,7 @@ class App extends Component {
             {this.props.loading
               ? <SignIn /> :
               <Fragment>
-                <Nav />
+                <Nav handleLogout={this.handleLogOut}/>
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/new' component={NewQuestion} />
@@ -45,7 +51,8 @@ class App extends Component {
 
 const mapStateToProps = ({ authedUser }) => {
   return {
-    loading: authedUser === null
+    loading: authedUser === null,
+    authedUser
   };
 }
 
