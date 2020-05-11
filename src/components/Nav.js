@@ -15,7 +15,7 @@ class Nav extends Component {
             <li><NavLink className="navbar-brand nav-blue" activeClassName='active' to="/new" exact>New Question</NavLink></li>
             <li><NavLink className="navbar-brand nav-blue" activeClassName='active' to="/leaderboard" exact>Leaderboard</NavLink></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul className="nav navbar-nav navbar-right">
             <li><a className="navbar-brand nav-blue pointer" href='/'><span className="glyphicon glyphicon-user"></span> {this.props.name}</a></li>
             <li><a href="!#" className="navbar-brand nav-blue pointer" onClick={this.props.handleLogout}><span className="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
