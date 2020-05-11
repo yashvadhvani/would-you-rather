@@ -28,13 +28,17 @@ class Dashboard extends Component {
         <div className="tab-content">
           <div id="unanswered" className="tab-pane fade in active">
             {
-              Object.keys(unanswred).map((id) => <Question key={id} id={id} type="unanswered" />)
+              ((Object.keys(unanswred).length > 0)
+                ? Object.keys(unanswred).map((id) => <Question key={id} id={id} type="unanswered" />)
+                : <h3 className="center">You have answered all questions</h3>)
             }
           </div>
           <div id="answered" className="tab-pane fade">
             <div id="answered" className="tab-pane fade in active">
               {
-                Object.keys(answered).map((id) => <Question key={id} id={id} type='answered' />)
+                ((Object.keys(answered).length > 0)
+                ? Object.keys(answered).map((id) => <Question key={id} id={id} type="answered" />)
+                : <h3 className="center">You have not answered any question</h3>)
               }
             </div>
           </div>
