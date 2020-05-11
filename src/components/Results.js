@@ -45,6 +45,7 @@ class Results extends Component {
                           <div style={{ width: `${answerOnePercentage}%` }} className="progress-bar">{answerOnePercentage}%</div> :
                           <div style={{ width: `100%`, backgroundColor: "transparent", color: '#000' }} className="progress-bar">{answerOnePercentage}%</div>}
                       </div>
+                        <h5 className="center">{question.optionOne.votes.length} out of {(question.optionOne.votes.length + question.optionTwo.votes.length)}</h5>
                     </div>
                     <hr />
                   </div>
@@ -57,6 +58,7 @@ class Results extends Component {
                           <div style={{ width: `${answerTwoPercentage}%` }} className="progress-bar">{answerTwoPercentage}%</div> :
                           <div style={{ width: `100%`, backgroundColor: "transparent", color: '#000' }} className="progress-bar">{answerTwoPercentage}%</div>}
                       </div>
+                      <h5 className="center">{question.optionTwo.votes.length} out of {(question.optionOne.votes.length + question.optionTwo.votes.length)}</h5>
                     </div>
                     <hr />
                   </div>
